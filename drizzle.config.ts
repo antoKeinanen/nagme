@@ -4,9 +4,11 @@ import { env } from "~/env";
 
 export default {
   schema: "./src/server/db/schema.ts",
-  driver: "better-sqlite",
+  out: "./drizzle/migrations",
+  driver: "turso",
   dbCredentials: {
     url: env.DATABASE_URL,
+    authToken: env.DATABASE_AUTH_TOKEN,
   },
   tablesFilter: ["nagme_*"],
 } satisfies Config;
